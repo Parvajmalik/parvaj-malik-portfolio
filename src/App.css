@@ -1,3 +1,5 @@
+/* App.css - Conflict Resolution for MUI + Bootstrap */
+
 * {
   margin: 0;
   padding: 0;
@@ -26,4 +28,59 @@ main {
 a {
   text-decoration: none;
   color: inherit;
+}
+
+.MuiButton-root,
+.MuiIconButton-root,
+.MuiButtonBase-root,
+.MuiFab-root {
+  font-family: 'Roboto', sans-serif !important;
+  text-transform: none;
+}
+
+.MuiTypography-root {
+  font-family: 'Roboto', sans-serif !important;
+}
+
+.MuiContainer-root {
+  padding-left: 16px !important;
+  padding-right: 16px !important;
+}
+
+.MuiTextField-root input,
+.MuiTextField-root textarea,
+.MuiInput-root,
+.MuiOutlinedInput-root {
+  font-family: 'Roboto', sans-serif !important;
+}
+
+.MuiPaper-root {
+  background-color: #fff;
+}
+
+
+.MuiSvgIcon-root {
+  display: inline-block;
+  fill: currentColor;
+  width: 1em;
+  height: 1em;
+}
+
+.MuiChip-root {
+  font-family: 'Roboto', sans-serif !important;
+}
+
+.MuiTab-root {
+  font-family: 'Roboto', sans-serif !important;
+  text-transform: none;
+}
+
+.MuiCardActions-root .MuiButton-root {
+  margin: 0;
+}
+
+.container,
+.container-fluid,
+.row,
+[class*="col-"] {
 }

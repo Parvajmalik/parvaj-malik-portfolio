@@ -9,7 +9,7 @@ const HomeView = () => {
     <div>
 
       {/* ── HERO ── */}
-      <section className="bg-white py-5">
+      <section className="bg-white pt-5">
         <div className="container">
 
           {/* Hello bubble */}

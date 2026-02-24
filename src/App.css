@@ -1,5 +1,3 @@
-/* App.css - Conflict Resolution for MUI + Bootstrap */
-
 * {
   margin: 0;
   padding: 0;
@@ -7,9 +5,7 @@
 }
 
 body {
-  font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #ffffff;
@@ -21,66 +17,201 @@ body {
   flex-direction: column;
 }
 
-main {
-  flex: 1;
+main { flex: 1; }
+
+/* ── Brand Colors ── */
+.text-orange  { color: #ff8c42; }
+.bg-orange    { background-color: #ff8c42; }
+.bg-dark-custom  { background-color: #2d2d2d; }
+.text-dark-custom { color: #2d2d2d; }
+
+/* ── Buttons ── */
+.btn-orange {
+  background-color: #ff8c42;
+  color: #fff;
+  border: none;
+}
+.btn-orange:hover,
+.btn-orange:focus {
+  background-color: #ff9d5c;
+  color: #fff;
+}
+.btn-circle {
+  width: 50px;
+  height: 50px;
+  background-color: #2d2d2d;
+  color: #fff;
+  border: none;
+  transition: background-color 0.2s;
+}
+.btn-circle:hover { background-color: #ff8c42; color: #fff; }
+
+/* ── Header ── */
+.nav-pill-wrap {
+  background-color: #2d2d2d;
+  max-width: 700px;
+}
+.header-logo {
+  width: 44px;
+  height: 44px;
+  background-color: #ff8c42;
+  color: #2d2d2d;
+  font-size: 0.95rem;
+  flex-shrink: 0;
+}
+.nav-pill-active {
+  background-color: #ff8c42;
+  color: #fff;
+  transition: all 0.2s;
+}
+.nav-pill-inactive {
+  background-color: transparent;
+  color: rgba(255, 255, 255, 0.6);
+  transition: all 0.2s;
+}
+.nav-pill-inactive:hover { color: rgba(255, 255, 255, 0.9); }
+
+/* ── Hero ── */
+.hello-badge {
+  border: 2px solid #2d2d2d;
+  color: #2d2d2d;
+}
+.squiggle-top {
+  position: absolute;
+  top: -18px;
+  right: -18px;
+}
+.squiggle-headline {
+  position: absolute;
+  bottom: -30px;
+  left: calc(50% - 250px);
+}
+.hero-avatar {
+  width: 420px;
+  height: 300px;
+  border-radius: 210px 210px 0 0;
+  background-color: #feb273;
+  padding-top: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  overflow: hidden;
+}
+.hero-avatar img {
+  width: 115%;
+  object-fit: contain;
+  object-position: center bottom;
+  display: block;
+}
+.testimonial-wrap { max-width: 280px; }
+.testimonial-text {
+  color: #344054;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+.star-icon { color: #ff8c42; }
+.years-count {
+  font-size: 2.5rem;
+  color: #2d2d2d;
+  line-height: 1;
 }
 
-a {
-  text-decoration: none;
-  color: inherit;
+/* ── About Section ── */
+.about-section {
+  background-color: #1a1a1a;
+  background-image:
+    radial-gradient(circle at 10% 20%, rgba(255, 140, 66, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 90% 80%, rgba(255, 140, 66, 0.08) 0%, transparent 50%);
+}
+.section-heading { font-size: 2.8rem; }
+.about-desc {
+  max-width: 600px;
+  line-height: 1.6;
+}
+.about-card {
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  transition: transform 0.3s, background-color 0.3s;
+}
+.about-card:hover {
+  transform: translateY(-10px);
+  background-color: rgba(255, 255, 255, 0.08);
+}
+.about-card .btn-circle { bottom: 20px; right: 20px; }
+.about-img {
+  height: 200px;
+  object-fit: cover;
+  width: 100%;
+}
+.skill-title {
+  font-size: 1.2rem;
+  line-height: 1.4;
 }
 
-.MuiButton-root,
-.MuiIconButton-root,
-.MuiButtonBase-root,
-.MuiFab-root {
-  font-family: 'Roboto', sans-serif !important;
-  text-transform: none;
+/* ── Work Experience ── */
+.work-section-wrap { max-width: 1000px; }
+.work-title { font-size: 1.4rem; }
+.timeline-dot {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 4px solid #fff;
+  flex-shrink: 0;
+}
+.timeline-dot-orange {
+  background-color: #ff8c42;
+  box-shadow: 0 0 0 3px #ff8c42;
+}
+.timeline-dot-dark {
+  background-color: #2d2d2d;
+  box-shadow: 0 0 0 3px #2d2d2d;
+}
+.timeline-line {
+  width: 3px;
+  height: 80px;
+  background: linear-gradient(to bottom, #ff8c42 0%, transparent 100%);
+  margin-top: 6px;
 }
 
-.MuiTypography-root {
-  font-family: 'Roboto', sans-serif !important;
+/* ── Blog Cards ── */
+.blog-card {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.blog-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.14);
+}
+.blog-card .btn-circle { bottom: 16px; right: 16px; }
+.blog-img {
+  height: 250px;
+  object-fit: cover;
+  width: 100%;
+}
+.blog-badge {
+  background-color: #f0f0f0;
+  color: #2d2d2d;
 }
 
-.MuiContainer-root {
-  padding-left: 16px !important;
-  padding-right: 16px !important;
+/* ── Footer ── */
+.footer-logo {
+  width: 44px;
+  height: 44px;
+  background-color: #ff8c42;
+  color: #2d2d2d;
 }
-
-.MuiTextField-root input,
-.MuiTextField-root textarea,
-.MuiInput-root,
-.MuiOutlinedInput-root {
-  font-family: 'Roboto', sans-serif !important;
+.cta-heading   { font-size: 2.5rem; }
+.footer-bio    { line-height: 1.7; }
+.footer-hr     { border-color: rgba(255, 255, 255, 0.1) !important; }
+.footer-section-title { color: #ff8c42; }
+.social-link { transition: color 0.2s; }
+.social-link:hover { color: #ff8c42 !important; }
+.footer-nav-link { transition: color 0.2s; }
+.footer-nav-link:hover { color: #ff8c42 !important; }
+.newsletter-input {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  color: #fff !important;
+  border: none;
 }
-
-.MuiPaper-root {
-  background-color: #fff;
-}
-
-
-.MuiSvgIcon-root {
-  display: inline-block;
-  fill: currentColor;
-  width: 1em;
-  height: 1em;
-}
-
-.MuiChip-root {
-  font-family: 'Roboto', sans-serif !important;
-}
-
-.MuiTab-root {
-  font-family: 'Roboto', sans-serif !important;
-  text-transform: none;
-}
-
-.MuiCardActions-root .MuiButton-root {
-  margin: 0;
-}
-
-.container,
-.container-fluid,
-.row,
-[class*="col-"] {
-}
+.newsletter-input::placeholder { color: rgba(255, 255, 255, 0.5); }

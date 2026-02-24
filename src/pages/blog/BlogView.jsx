@@ -1,37 +1,57 @@
-import React from 'react';
-import { NorthEast } from '@mui/icons-material';
-import '../../assets/css/Blog.css';
+import { usePortfolio } from "../../context/PortfolioContext";
 
-const BlogView = ({ blogPosts }) => {
+const BlogView = () => {
+  const data = usePortfolio();
+  if (!data) return null;
+
+  const { blogs } = data;
+
   return (
-    <div className="blog-page">
-      <div className="blog-container">
-        <div className="blog-header">
-          <h1 className="blog-title">My Blog's</h1>
-          <button className="see-all-btn">See All</button>
-        </div>
+    <div className="container py-5">
 
-        <div className="blog-grid">
-          {blogPosts.map((post) => (
-            <div key={post.id} className="blog-card">
-              <div className="blog-image-wrapper">
-                <img src={post.image} alt={post.title} className="blog-image" />
-                <button className="blog-arrow">
-                  <NorthEast />
+      {/* Header */}
+      <div className="d-flex justify-content-between align-items-center mb-5">
+        <h1 className="fw-bold mb-0 text-orange section-heading">My Blogs</h1>
+        <button className="btn rounded-pill px-4 py-2 fw-semibold btn-orange">
+          See All
+        </button>
+      </div>
+
+      {/* Grid */}
+      <div className="row g-4">
+        {blogs.map(blog => (
+          <div className="col-md-4" key={blog.id}>
+            <div className="card border-0 rounded-4 overflow-hidden h-100 blog-card">
+
+              {/* Image */}
+              <div className="position-relative overflow-hidden">
+                <img src={blog.image} alt={blog.title} className="blog-img" />
+                <button className="btn rounded-circle d-flex align-items-center justify-content-center position-absolute btn-circle">
+                  <i className="bi bi-arrow-up-right" />
                 </button>
               </div>
-              <div className="blog-content">
-                <span className="blog-category">{post.category}</span>
-                <div className="blog-meta">
-                  <span className="blog-author">{post.author}</span>
-                  <span className="blog-date">{post.date}</span>
+
+              {/* Body */}
+              <div className="card-body p-3">
+                <span className="badge rounded-pill px-3 py-2 mb-3 fw-medium blog-badge">
+                  {blog.category}
+                </span>
+
+                <div className="d-flex gap-3 mb-2 small text-secondary">
+                  <span><span className="text-orange">● </span>{blog.author}</span>
+                  <span><span className="text-orange">● </span>{blog.date}</span>
                 </div>
-                <h3 className="blog-post-title">{post.title}</h3>
+
+                <h5 className="fw-semibold mb-0 text-dark-custom" style={{ lineHeight: 1.4 }}>
+                  {blog.title}
+                </h5>
               </div>
+
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
       </div>
+
     </div>
   );
 };

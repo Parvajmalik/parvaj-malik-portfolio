@@ -75,61 +75,9 @@ const theme = createTheme({
       lineHeight: 1.6,
     },
   },
-  spacing: 8, // Keep MUI's 8px spacing system
+  spacing: 8,
   shape: {
-    borderRadius: 8, // Slightly rounded corners
-  },
-  components: {
-    // Optimize MUI components to work alongside Bootstrap
-    MuiButton: {
-      styleOverrides: {
-        root: {
-          textTransform: 'none',
-          borderRadius: '8px',
-          fontWeight: 500,
-          padding: '8px 16px',
-          // Ensure buttons don't conflict with Bootstrap
-          border: 'none',
-          '&:hover': {
-            boxShadow: '0 2px 8px rgba(0, 0, 0, 0.15)',
-          },
-        },
-      },
-    },
-    MuiIconButton: {
-      styleOverrides: {
-        root: {
-          // Prevent Bootstrap button styles from affecting icon buttons
-          border: 'none !important',
-          padding: '8px',
-        },
-      },
-    },
-    MuiContainer: {
-      styleOverrides: {
-        root: {
-          // Override Bootstrap container padding
-          paddingLeft: '16px !important',
-          paddingRight: '16px !important',
-        },
-      },
-    },
-    MuiCard: {
-      styleOverrides: {
-        root: {
-          boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)',
-          borderRadius: '12px',
-        },
-      },
-    },
-    MuiPaper: {
-      styleOverrides: {
-        root: {
-          // Ensure paper components work well with Bootstrap
-          boxSizing: 'border-box',
-        },
-      },
-    },
+    borderRadius: 8,
   },
 });
 

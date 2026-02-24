@@ -1,40 +1,35 @@
 import React from "react";
-import { Link, useLocation } from "react-router-dom";
-import "../../assets/css/Header.css";
+import { NavLink } from "react-router-dom";
+import { usePortfolio } from "../../context/PortfolioContext";
 
-const HeaderView = (props) => {
-  const location = useLocation();
+const HeaderView = () => {
+  const data = usePortfolio();
+  if (!data) return null;
 
-  const isActive = (path) => {
-    return location.pathname === path;
-  };
+  const { site, header } = data;
+  const midpoint = Math.floor(header.navLinks.length / 2);
 
   return (
-    <header className="header">
-      <nav className="navbar">
-        <div className="nav-links">
-          <Link
-            to="/"
-            className={isActive("/") ? "nav-link active" : "nav-link"}
-          >
-            Home
-          </Link>
-          <Link
-            to="/blog"
-            className={isActive("/blog") ? "nav-link active" : "nav-link"}
-          >
-            Blogs
-          </Link>
-          <div className="logo">
-            <span className="logo-text">PM</span>
-          </div>
-          <a href="#projects" className="nav-link">
-            Project
-          </a>
-          <a href="#contact" className="nav-link">
-            Contact
-          </a>
-        </div>
+    <header className="sticky-top pt-3 px-3" style={{ zIndex: 1000 }}>
+      <nav className="d-flex justify-content-center align-items-center rounded-pill px-4 py-2 mx-auto nav-pill-wrap">
+        {header.navLinks.map((link, i) => (
+          <React.Fragment key={link.label}>
+            {i === midpoint && (
+              <div className="d-flex align-items-center justify-content-center rounded-circle fw-bold mx-3 header-logo">
+                {site.initials}
+              </div>
+            )}
+            <NavLink
+              to={link.path}
+              end={link.path === "/"}
+              className={({ isActive }) =>
+                `text-decoration-none fw-medium px-4 py-2 rounded-pill ${isActive ? "nav-pill-active" : "nav-pill-inactive"}`
+              }
+            >
+              {link.label}
+            </NavLink>
+          </React.Fragment>
+        ))}
       </nav>
     </header>
   );

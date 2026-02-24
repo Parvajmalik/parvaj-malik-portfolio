@@ -11,7 +11,7 @@ const HeaderView = () => {
 
   return (
     <header className="sticky-top pt-3 px-3" style={{ zIndex: 1000 }}>
-      <nav className="d-flex justify-content-center align-items-center rounded-pill px-4 py-2 mx-auto nav-pill-wrap">
+      <nav className="d-flex justify-content-center align-items-center rounded-pill px-4 py-2 mx-auto nav-pill-wrap justify-content-evenly">
         {header.navLinks.map((link, i) => (
           <React.Fragment key={link.label}>
             {i === midpoint && (

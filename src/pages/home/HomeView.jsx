@@ -40,7 +40,7 @@ const HomeView = () => {
           </div>
 
           {/* Three columns */}
-          <div className="row align-items-end g-4 mt-2">
+          <div className="row g-2 mt-2">
 
             {/* Testimonial */}
             <div className="col-lg-3 col-12 d-flex justify-content-lg-end justify-content-center">

@@ -144,7 +144,7 @@ const HomeView = () => {
           </h2>
 
           {workExperience.map((work, index) => (
-            <div key={work.id} className="row align-items-start g-3 mb-4">
+            <div key={work.id} className="row align-items-start g-5 mb-4">
               {/* Left */}
               <div className="col-5 text-end pt-2">
                 <h3 className="fw-bold mb-1 work-title text-dark-custom">

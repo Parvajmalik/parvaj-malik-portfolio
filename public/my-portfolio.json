@@ -58,7 +58,7 @@
       "id": 3,
       "company": "CDAC, Pune ",
       "period": " Aug 2024 - Feb 2025",
-      "position": "Training Embedded System Engineer",
+      "position": "Training Embedded Firmware Engineer",
       "description":  "Completed intensive training in Embedded Systems Design at CDAC, gaining hands-on experience in Embedded C/C++, RTOS, Linux systems, and microcontroller platforms including STM32, ESP32, NXP, and Raspberry Pi. Worked on real-time firmware development, peripheral interfacing (UART, SPI, I2C, CAN), IoT systems, and hardware-software integration."
     }
   ],
@@ -67,7 +67,8 @@
   "footer": {
     "ctaText": "Lets Connect there",
     "hireMeLink": "#",
-    "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed congue interdum ligula a dignissim. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    "bio": "Research-driven Embedded Systems Engineer focused on biomedical innovation and production-ready medical systems.",
+    "designationHighlight": "Founder & CEO, IBN Group",
     "social": [
       { "icon": "bi-facebook", "href": "#" },
       { "icon": "bi-youtube", "href": "#" },
@@ -75,6 +76,7 @@
       { "icon": "bi-discord", "href": "#" },
       { "icon": "bi-twitter-x", "href": "#" }
     ],
+    
     "navLinks": ["Home", "About Us", "Project", "Resume", "Blog"],
     "contact": {
       "phone": "+91 9389857045",

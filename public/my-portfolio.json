@@ -1,9 +1,9 @@
 {
   "site": {
     "initials": "PM",
-    "name": "Parvej Malik",
+    "name": "Parvaj Malik",
     "title": "Embedded Engineer",
-    "copyright": "Copyright© 2026 Parvej. All Rights Reserved."
+    "copyright": "Copyright© 2026 Parvaj. All Rights Reserved."
   },
   "header": {
     "navLinks": [
@@ -17,9 +17,9 @@
     "greeting": "Hello!",
     "firstName": "Parvaj",
     "role": "Embedded Engineer",
-    "yearsExperience": 3,
+    "yearsExperience": 2,
     "profileImage": "/parvaj_malik.png",
-    "testimonial": "Parvej's exceptional embedded engineering work made a huge impact on our project. Highly recommended."
+    "testimonial": "Parvaj's exceptional embedded engineering work made a huge impact on our project. Highly recommended."
   },
   "about": {
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis locus nunc, posuere in justo vulputate, bibendum sodales",
@@ -74,8 +74,8 @@
     ],
     "navLinks": ["Home", "About Us", "Project", "Resume", "Blog"],
     "contact": {
-      "phone": "+91 7738443636",
-      "email": "Jaycrea36@gmail.com",
+      "phone": "+91 9389857045",
+      "email": "parvajmalik93898@gmail.com",
       "website": "Portfolio-jcrea.com"
     },
     "newsletterTitle": "Get the latest information"

@@ -67,8 +67,7 @@
   "footer": {
     "ctaText": "Lets Connect there",
     "hireMeLink": "#",
-    "bio": "Research-driven Embedded Systems Engineer focused on biomedical innovation and production-ready medical systems.",
-    "designationHighlight": "Founder & CEO, IBN Group",
+    "bio": "Research-driven Embedded Systems Engineer focused on biomedical innovation and production-ready medical systems - Founder & CEO IBN Group.",
     "social": [
       { "icon": "bi-facebook", "href": "#" },
       { "icon": "bi-youtube", "href": "#" },
@@ -79,12 +78,13 @@
     
     "navLinks": ["Home", "About Us", "Project", "Resume", "Blog"],
     "contact": {
-      "phone": "+91 9389857045",
+      "phone": "+91 7599911610",
       "email": "parvajmalik93898@gmail.com",
       "website": "Portfolio-jcrea.com"
     },
     "newsletterTitle": "Get the latest information"
   },
+  
   "blogs": [
     {
       "id": 1,

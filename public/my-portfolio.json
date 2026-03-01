@@ -19,10 +19,10 @@
     "role": "Embedded Engineer",
     "yearsExperience": 2,
     "profileImage": "/parvaj_malik.png",
-    "testimonial": "Parvaj developed a complete NPWT medical device system including firmware, hardware integration and control algorithms. Strong ownership and deep technical knowledge."
+    "testimonial": "Parvaj combines deep embedded systems expertise with biomedical product development experience. He successfully delivered a complete NPWT system, integrating firmware, control algorithms, and hardware validation with a strong focus on reliability and clinical applicability."
   },
   "about": {
-    "description": "Embedded Systems Engineer specializing in STM32, biomedical device development, real-time firmware design and complete hardware-software integration. Experienced in medical product prototyping and system-level debugging.",
+    "description": "Embedded Systems Engineer specializing in STM32, NXP(MIMXRT1166), Raspberry pi, and ESP32 platforms with expertise in real-time firmware, RTOS architecture, and biomedical device development. Experienced in delivering production-ready embedded systems including hardware integration, control algorithms, and safety-critical medical applications in collaboration with IIT Delhi and AIIMS Delhi.",
     "skills": [
       {
         "title": "Embedded firmware development",
@@ -38,13 +38,14 @@
       }
     ]
   },
+
   "workExperience": [
     {
       "id": 1,
-      "company": "Cognizant, Mumbai",
-      "period": "Sep 2016 - July 2020",
-      "position": "Experience Designer",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis locus nunc, posuere in justo vulputate, bibendum sodales"
+      "company": "Inochi care Pvt limited, New Delhi",
+      "period": "July 2025 - March 2026",
+      "position": "Embedded System Engineer",
+      "description": "Designing and developing STM32-based NPWT biomedical systems with complete firmware architecture, closed-loop pressure control, sensor integration, and PWM-based pump regulation. Experienced in full hardware-software integration, custom LCD driver implementation over MIPI DSI, and system-level debugging to ensure reliable medical-grade performance."
     },
     {
       "id": 2,

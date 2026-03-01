@@ -1,6 +1,6 @@
 {
   "site": {
-    "initials": "PM",
+    "initials": "PM", 
     "name": "Parvaj Malik",
     "title": "Embedded Engineer",
     "copyright": "Copyright© 2026 Parvaj. All Rights Reserved."
@@ -19,10 +19,10 @@
     "role": "Embedded Engineer",
     "yearsExperience": 2,
     "profileImage": "/parvaj_malik.png",
-    "testimonial": "Parvaj's exceptional embedded engineering work made a huge impact on our project. Highly recommended."
+    "testimonial": "Parvaj developed a complete NPWT medical device system including firmware, hardware integration and control algorithms. Strong ownership and deep technical knowledge."
   },
   "about": {
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis locus nunc, posuere in justo vulputate, bibendum sodales",
+    "description": "Embedded Systems Engineer specializing in STM32, biomedical device development, real-time firmware design and complete hardware-software integration. Experienced in medical product prototyping and system-level debugging.",
     "skills": [
       {
         "title": "Embedded firmware development",

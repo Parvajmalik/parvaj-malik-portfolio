@@ -49,19 +49,21 @@
     },
     {
       "id": 2,
-      "company": "Sugee Pvt limited, Mumbai",
-      "period": "Sep 2020 - July 2023",
-      "position": "UI/UX Designer",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis locus nunc, posuere in justo vulputate, bibendum sodales"
+      "company": "IIT Delhi, New Delhi",
+      "period": "Feb 2025 - July 2025",
+      "position": "Embedded System Engineer",
+      "description": "Served as a Research Embedded Systems Engineer at IIT Delhi, contributing to innovative biomedical product development and a WIPO-supported technology project, focusing on embedded firmware architecture, hardware integration, and system validation. Later promoted to Inochi for advanced product development and end-to-end system implementation."
     },
     {
       "id": 3,
-      "company": "Cinetstox, Mumbai",
-      "period": "Sep 2023",
-      "position": "Lead UX Designer",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis locus nunc, posuere in justo vulputate, bibendum sodales"
+      "company": "CDAC, Pune ",
+      "period": " Aug 2024 - Feb 2025",
+      "position": "Training Embedded System Engineer",
+      "description":  "Completed intensive training in Embedded Systems Design at CDAC, gaining hands-on experience in Embedded C/C++, RTOS, Linux systems, and microcontroller platforms including STM32, ESP32, NXP, and Raspberry Pi. Worked on real-time firmware development, peripheral interfacing (UART, SPI, I2C, CAN), IoT systems, and hardware-software integration."
     }
   ],
+
+
   "footer": {
     "ctaText": "Lets Connect there",
     "hireMeLink": "#",

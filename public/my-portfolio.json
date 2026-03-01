@@ -19,10 +19,10 @@
     "role": "Embedded Engineer",
     "yearsExperience": 2,
     "profileImage": "/parvaj_malik.png",
-    "testimonial": "Parvaj combines deep embedded systems expertise with biomedical product development experience. He successfully delivered a complete NPWT system, integrating firmware, control algorithms, and hardware validation with a strong focus on reliability and clinical applicability."
+    "testimonial": "Embedded Systems Engineer with comprehensive knowledge of NPWT(V.A.C therapy) systems and their full operational workflow, with hands-on experience working on real-life product development projects at IIT Delhi."
   },
   "about": {
-    "description": "Embedded Systems Engineer specializing in STM32, NXP(MIMXRT1166), Raspberry pi, and ESP32 platforms with expertise in real-time firmware, RTOS architecture, and biomedical device development. Experienced in delivering production-ready embedded systems including hardware integration, control algorithms, and safety-critical medical applications in collaboration with IIT Delhi and AIIMS Delhi.",
+    "description": "Parvaj Malik is an Electronics and Communication Engineering graduate with a Post Graduate Diploma in Embedded Systems Design from CDAC. He has worked as a Research Embedded Systems Engineer in collaboration with IIT Delhi and AIIMS Delhi, contributing to real-world product development and biomedical system innovation.",
     "skills": [
       {
         "title": "Embedded firmware development",

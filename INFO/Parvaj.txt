@@ -1,2 +1,4 @@
 
-# I need 
+# I need Linkedin logo on the footer 
+# I need the resume Link on the footer 
+# I need the Heading of the Founder & CEO of the IBN 

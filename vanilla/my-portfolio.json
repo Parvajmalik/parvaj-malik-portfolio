@@ -1,0 +1,114 @@
+{
+  "site": {
+    "initials": "PM", 
+    "name": "Parvaj Malik",
+    "title": "Embedded Engineer",
+    "copyright": "Copyright© 2026 Parvaj. All Rights Reserved."
+  },
+  "header": {
+    "navLinks": [
+      { "label": "Home", "path": "/" },
+      { "label": "Blogs", "path": "/blogs" },
+      { "label": "Project", "path": "/project" },
+      { "label": "Contact", "path": "/contact" }
+    ]
+  },
+  "hero": {
+    "greeting": "Hello!",
+    "firstName": "Parvaj",
+    "role": "Embedded Engineer",
+    "yearsExperience": 2,
+    "profileImage": "/parvaj_malik.png",
+    "testimonial": "Embedded Systems Engineer with comprehensive knowledge of NPWT(V.A.C therapy) systems and their full operational workflow, with hands-on experience working on real-life product development projects at IIT Delhi."
+  },
+  "about": {
+    "description": "Parvaj Malik is an Electronics and Communication Engineering graduate with a Post Graduate Diploma in Embedded Systems Design from CDAC. He has worked as a Research Embedded Systems Engineer in collaboration with IIT Delhi and AIIMS Delhi, contributing to real-world product development and biomedical system innovation.",
+    "skills": [
+      {
+        "title": "Embedded firmware development",
+        "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=400"
+      },
+      {
+        "title": "Biomedical products development",
+        "image": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=400"
+      },
+      {
+        "title": "Full system designs with H/W and S/W",
+        "image": "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400"
+      }
+    ]
+  },
+
+  "workExperience": [
+    {
+      "id": 1,
+      "company": "Inochi care Pvt limited, New Delhi",
+      "period": "July 2025 - March 2026",
+      "position": "Embedded System Engineer",
+      "description": "Designing and developing STM32-based NPWT biomedical systems with complete firmware architecture, closed-loop pressure control, sensor integration, and PWM-based pump regulation. Experienced in full hardware-software integration, custom LCD driver implementation over MIPI DSI, and system-level debugging to ensure reliable medical-grade performance."
+    },
+    {
+      "id": 2,
+      "company": "IIT Delhi, New Delhi",
+      "period": "Feb 2025 - July 2025",
+      "position": "Embedded System Engineer",
+      "description": "Served as a Research Embedded Systems Engineer at IIT Delhi, contributing to innovative biomedical product development and a WIPO-supported technology project, focusing on embedded firmware architecture, hardware integration, and system validation. Later promoted to Inochi for advanced product development and end-to-end system implementation."
+    },
+    {
+      "id": 3,
+      "company": "CDAC, Pune ",
+      "period": " Aug 2024 - Feb 2025",
+      "position": "Training Embedded Firmware Engineer",
+      "description":  "Completed intensive training in Embedded Systems Design at CDAC, gaining hands-on experience in Embedded C/C++, RTOS, Linux systems, and microcontroller platforms including STM32, ESP32, NXP, and Raspberry Pi. Worked on real-time firmware development, peripheral interfacing (UART, SPI, I2C, CAN), IoT systems, and hardware-software integration."
+    }
+  ],
+
+
+  "footer": {
+    "ctaText": "Lets Connect there",
+    "hireMeLink": "#",
+    "bio": "Research-driven Embedded Systems Engineer focused on biomedical innovation and production-ready medical systems - Founder & CEO IBN Group.",
+    "social": [
+      { "icon": "bi-facebook", "href": "#" },
+      { "icon": "bi-youtube", "href": "#" },
+      { "icon": "bi-whatsapp", "href": "#" },
+      { "icon": "bi-discord", "href": "#" },
+      { "icon": "bi-twitter-x", "href": "#" }
+    ],
+    
+    "navLinks": ["Home", "About Us", "Project", "Resume", "Blog"],
+    "contact": {
+      "phone": "+91 7599911610",
+      "email": "parvajmalik93898@gmail.com",
+      "website": "Portfolio-jcrea.com"
+    },
+    "newsletterTitle": "Get the latest information"
+  },
+  
+  "blogs": [
+    {
+      "id": 1,
+      "category": "UI/ UX Design",
+      "author": "Jayesh Patil",
+      "date": "10 Nov, 2023",
+      "title": "Design Unraveled: Behind the Scenes of UI/UX Magic",
+      "image": "https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=400"
+    },
+    {
+      "id": 2,
+      "category": "App Design",
+      "author": "Jayesh Patil",
+      "date": "09 Oct, 2023",
+      "title": "Sugee: Loan Management System for Rural Sector.",
+      "image": "https://images.unsplash.com/photo-1551650975-87deedd944c3?w=400"
+    },
+    {
+      "id": 3,
+      "category": "App Design",
+      "author": "Jayesh Patil",
+      "date": "13 Aug, 2023",
+      "title": "Cinetrade: Innovative way to invest in Digital Media",
+      "image": "https://images.unsplash.com/photo-1611162616475-46b635cb6868?w=400"
+    }
+  ]
+}

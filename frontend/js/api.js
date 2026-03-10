@@ -16,6 +16,7 @@ async function request(method, path, body = null) {
     const err = await res.json().catch(() => ({ message: res.statusText }));
     const e = new Error(err.message || 'Request failed');
     e.status = res.status;
+    e.errors = err.errors || {};
     throw e;
   }
   return res.json();
@@ -57,6 +58,9 @@ export async function uploadImage(file) {
     headers: { Authorization: `Bearer ${token}`, Accept: 'application/json' },
     body: form,
   });
-  if (!res.ok) throw new Error('Image upload failed');
+  if (!res.ok) {
+    const err = await res.json().catch(() => ({}));
+    throw new Error(err.message || 'Image upload failed');
+  }
   return res.json(); // { url: "..." }
 }

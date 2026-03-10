@@ -2,6 +2,7 @@
 
 import { initAdminLayout } from './layout.js';
 import { api } from '../api.js';
+import { showToast } from '../toast.js';
 
 async function render() {
   if (!initAdminLayout('Blog Management', 'blogs')) return;
@@ -79,8 +80,9 @@ window.deleteBlog = async (id) => {
     await api.deleteBlog(id);
     const row = document.getElementById(`row-${id}`);
     if (row) row.remove();
+    showToast('Blog post deleted.', 'success');
   } catch (e) {
-    alert('Delete failed: ' + e.message);
+    showToast('Delete failed: ' + e.message, 'error');
   }
 };
 

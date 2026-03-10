@@ -202,3 +202,14 @@
 
 /* ── CKEditor height inside form ── */
 .ck-editor__editable { min-height: 320px; }
+
+/* ── Toasts ── */
+.admin-toast {
+  min-width: 300px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.18);
+  border-radius: 10px !important;
+  color: #fff;
+}
+.toast-success { background: #22863a; }
+.toast-error   { background: #d73a49; }
+.toast-warning { background: #b08800; }

@@ -41,7 +41,7 @@ class BlogController extends Controller
     {
         $data = $request->validate([
             'title'          => ['required', 'string', 'max:255'],
-            'slug'           => ['nullable', 'string', 'unique:blogs,slug'],
+            'slug'           => ['nullable', 'string', 'max:255'],
             'category'       => ['nullable', 'string', 'max:100'],
             'author'         => ['nullable', 'string', 'max:100'],
             'excerpt'        => ['nullable', 'string'],
@@ -51,9 +51,10 @@ class BlogController extends Controller
             'featured_image' => ['nullable', 'string'],
         ]);
 
-        if (empty($data['slug'])) {
-            $data['slug'] = Str::slug($data['title']);
-        }
+        $base = Str::slug(!empty($data['slug']) ? $data['slug'] : $data['title']);
+        $data['slug']     = $this->uniqueSlug($base);
+        $data['category'] = !empty($data['category']) ? $data['category'] : 'General';
+        $data['author']   = !empty($data['author'])   ? $data['author']   : 'Parvej Malik';
 
         $blog = Blog::create($data);
 
@@ -64,16 +65,27 @@ class BlogController extends Controller
     public function update(Request $request, Blog $blog): JsonResponse
     {
         $data = $request->validate([
-            'title'          => ['sometimes', 'string', 'max:255'],
-            'slug'           => ['sometimes', 'string', 'unique:blogs,slug,' . $blog->id],
+            'title'          => ['sometimes', 'required', 'string', 'max:255'],
+            'slug'           => ['nullable', 'string', 'max:255'],
             'category'       => ['nullable', 'string', 'max:100'],
             'author'         => ['nullable', 'string', 'max:100'],
             'excerpt'        => ['nullable', 'string'],
-            'content'        => ['sometimes', 'string'],
+            'content'        => ['sometimes', 'required', 'string'],
             'is_published'   => ['boolean'],
             'published_at'   => ['nullable', 'date'],
             'featured_image' => ['nullable', 'string'],
         ]);
+
+        if (isset($data['slug'])) {
+            $base = Str::slug($data['slug'] ?: ($data['title'] ?? $blog->title));
+            $data['slug'] = $this->uniqueSlug($base, $blog->id);
+        }
+        if (array_key_exists('category', $data) && empty($data['category'])) {
+            $data['category'] = 'General';
+        }
+        if (array_key_exists('author', $data) && empty($data['author'])) {
+            $data['author'] = 'Parvej Malik';
+        }
 
         $blog->update($data);
 
@@ -86,5 +98,18 @@ class BlogController extends Controller
         $blog->delete();
 
         return response()->json(['message' => 'Blog deleted.']);
+    }
+
+    private function uniqueSlug(string $base, ?int $excludeId = null): string
+    {
+        $slug = $base;
+        $counter = 2;
+        while (Blog::where('slug', $slug)
+            ->when($excludeId, fn($q) => $q->where('id', '!=', $excludeId))
+            ->exists()
+        ) {
+            $slug = $base . '-' . $counter++;
+        }
+        return $slug;
     }
 }

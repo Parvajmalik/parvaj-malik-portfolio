@@ -42,22 +42,22 @@ class ProjectController extends Controller
     {
         $data = $request->validate([
             'title'          => ['required', 'string', 'max:255'],
-            'slug'           => ['nullable', 'string', 'unique:projects,slug'],
+            'slug'           => ['nullable', 'string', 'max:255'],
             'category'       => ['nullable', 'string', 'max:100'],
             'excerpt'        => ['nullable', 'string'],
             'content'        => ['required', 'string'],
             'tech_stack'     => ['nullable', 'array'],
-            'tech_stack.*'   => ['string'],
-            'live_url'       => ['nullable', 'url'],
-            'github_url'     => ['nullable', 'url'],
+            'tech_stack.*'   => ['string', 'max:100'],
+            'live_url'       => ['nullable', 'url', 'max:500'],
+            'github_url'     => ['nullable', 'url', 'max:500'],
             'order'          => ['nullable', 'integer', 'min:0'],
             'is_published'   => ['boolean'],
             'featured_image' => ['nullable', 'string'],
         ]);
 
-        if (empty($data['slug'])) {
-            $data['slug'] = Str::slug($data['title']);
-        }
+        $base = Str::slug(!empty($data['slug']) ? $data['slug'] : $data['title']);
+        $data['slug']     = $this->uniqueSlug($base);
+        $data['category'] = !empty($data['category']) ? $data['category'] : 'General';
 
         $project = Project::create($data);
 
@@ -68,19 +68,27 @@ class ProjectController extends Controller
     public function update(Request $request, Project $project): JsonResponse
     {
         $data = $request->validate([
-            'title'          => ['sometimes', 'string', 'max:255'],
-            'slug'           => ['sometimes', 'string', 'unique:projects,slug,' . $project->id],
+            'title'          => ['sometimes', 'required', 'string', 'max:255'],
+            'slug'           => ['nullable', 'string', 'max:255'],
             'category'       => ['nullable', 'string', 'max:100'],
             'excerpt'        => ['nullable', 'string'],
-            'content'        => ['sometimes', 'string'],
+            'content'        => ['sometimes', 'required', 'string'],
             'tech_stack'     => ['nullable', 'array'],
-            'tech_stack.*'   => ['string'],
-            'live_url'       => ['nullable', 'url'],
-            'github_url'     => ['nullable', 'url'],
+            'tech_stack.*'   => ['string', 'max:100'],
+            'live_url'       => ['nullable', 'url', 'max:500'],
+            'github_url'     => ['nullable', 'url', 'max:500'],
             'order'          => ['nullable', 'integer', 'min:0'],
             'is_published'   => ['boolean'],
             'featured_image' => ['nullable', 'string'],
         ]);
+
+        if (isset($data['slug'])) {
+            $base = Str::slug($data['slug'] ?: ($data['title'] ?? $project->title));
+            $data['slug'] = $this->uniqueSlug($base, $project->id);
+        }
+        if (array_key_exists('category', $data) && empty($data['category'])) {
+            $data['category'] = 'General';
+        }
 
         $project->update($data);
 
@@ -93,5 +101,18 @@ class ProjectController extends Controller
         $project->delete();
 
         return response()->json(['message' => 'Project deleted.']);
+    }
+
+    private function uniqueSlug(string $base, ?int $excludeId = null): string
+    {
+        $slug = $base;
+        $counter = 2;
+        while (Project::where('slug', $slug)
+            ->when($excludeId, fn($q) => $q->where('id', '!=', $excludeId))
+            ->exists()
+        ) {
+            $slug = $base . '-' . $counter++;
+        }
+        return $slug;
     }
 }

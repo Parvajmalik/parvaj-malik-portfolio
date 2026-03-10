@@ -20,10 +20,10 @@ class ProjectResource extends JsonResource
             'slug'           => $this->slug,
             'category'       => $this->category,
             'featured_image' => $this->featured_image
-                ? asset('storage/' . $this->featured_image)
+                ? (str_starts_with($this->featured_image, 'http') ? $this->featured_image : asset('storage/' . $this->featured_image))
                 : null,
             'excerpt'        => $this->excerpt,
-            'content'        => $this->when($request->routeIs('projects.show'), $this->content),
+            'content'        => $this->when($request->routeIs('projects.show') || $request->user(), $this->content),
             'tech_stack'     => $this->tech_stack ?? [],
             'live_url'       => $this->live_url,
             'github_url'     => $this->github_url,

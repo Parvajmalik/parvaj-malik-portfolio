@@ -18,8 +18,21 @@ class UploadController extends Controller
      */
     public function image(Request $request): JsonResponse
     {
+        // Check if PHP itself dropped the file (upload_max_filesize exceeded)
+        if ($request->hasFile('upload') === false && $request->getMethod() === 'POST') {
+            return response()->json([
+                'message' => 'Image is too large. Maximum allowed size is 5 MB.',
+                'errors'  => ['upload' => ['Image is too large. Maximum allowed size is 5 MB.']],
+            ], 422);
+        }
+
         $request->validate([
-            'upload' => ['required', 'image', 'max:5120'],  // max 5 MB
+            'upload' => ['required', 'file', 'extensions:jpg,jpeg,png,gif,webp,svg,bmp', 'max:5120'],
+        ], [
+            'upload.required'   => 'No image file was received.',
+            'upload.file'       => 'The uploaded item is not a valid file.',
+            'upload.extensions' => 'Invalid file type. Allowed types: JPEG, PNG, GIF, WebP, SVG, BMP.',
+            'upload.max'        => 'Image is too large. Maximum allowed size is 5 MB.',
         ]);
 
         $path = $request->file('upload')->store('uploads', 'public');

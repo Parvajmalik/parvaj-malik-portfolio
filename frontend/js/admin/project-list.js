@@ -2,6 +2,7 @@
 
 import { initAdminLayout } from './layout.js';
 import { api } from '../api.js';
+import { showToast } from '../toast.js';
 
 async function render() {
   if (!initAdminLayout('Project Management', 'projects')) return;
@@ -80,8 +81,9 @@ window.deleteProject = async (id) => {
     await api.deleteProject(id);
     const row = document.getElementById(`row-${id}`);
     if (row) row.remove();
+    showToast('Project deleted.', 'success');
   } catch (e) {
-    alert('Delete failed: ' + e.message);
+    showToast('Delete failed: ' + e.message, 'error');
   }
 };
 

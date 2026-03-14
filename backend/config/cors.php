@@ -24,6 +24,8 @@ return [
         'http://localhost:8080',
         'http://127.0.0.1:5500',   // VS Code Live Server
         'http://localhost:3000',
+        'https://parvajmalik.ibngroup.in',
+        'http://parvajmalik.ibngroup.in',
     ],
 
     'allowed_origins_patterns' => [],

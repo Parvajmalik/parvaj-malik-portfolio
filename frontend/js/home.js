@@ -14,8 +14,8 @@ function renderProjectCards(projects) {
         <h3 class="text-white fw-semibold mb-3 skill-title">${p.title}</h3>
         <div class="rounded-3 overflow-hidden mb-3">
           ${p.featured_image
-            ? `<img src="${p.featured_image}" alt="${p.title}" class="about-img" />`
-            : `<div class="about-img d-flex align-items-center justify-content-center bg-dark text-white-50 fs-2"><i class="bi bi-image"></i></div>`}
+      ? `<img src="${p.featured_image}" alt="${p.title}" class="about-img" />`
+      : `<div class="about-img d-flex align-items-center justify-content-center bg-dark text-white-50 fs-2"><i class="bi bi-image"></i></div>`}
         </div>
         <p class="text-white-50 small mb-0">${p.excerpt || ''}</p>
         <a href="project-detail.html?slug=${p.slug}"
@@ -111,21 +111,17 @@ function renderHome(data, projects) {
         </div>
       </section>
 
-      <!-- ── PROJECTS (was About) ── -->
+      <!-- ── About section ── -->
       <section class="py-5 about-section">
         <div class="container">
           <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-3">
             <div>
               <h2 class="fw-bold text-white mb-1 section-heading">
-                My <span class="text-orange">Projects</span>
+                About
               </h2>
               <p class="text-white-50 mb-0">${about.description}</p>
             </div>
-            <a href="project.html" class="btn btn-orange rounded-pill px-4 py-2 fw-semibold">
-              View All <i class="bi bi-arrow-right ms-1"></i>
-            </a>
-          </div>
-          <div class="row g-4">${projectCards}</div>
+        </div>
         </div>
       </section>
 
@@ -139,6 +135,22 @@ function renderHome(data, projects) {
         </div>
       </section>
 
+            <!-- ── PROJECTS (was About) ── -->
+      <section class="py-5 about-section">
+        <div class="container">
+          <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-3">
+            <div>
+              <h2 class="fw-bold text-white mb-1 section-heading">
+                My <span class="text-orange">Projects</span>
+              </h2>
+            </div>
+            <a href="project.html" class="btn btn-orange rounded-pill px-4 py-2 fw-semibold">
+              View All <i class="bi bi-arrow-right ms-1"></i>
+            </a>
+          </div>
+          <div class="row g-4">${projectCards}</div>
+        </div>
+      </section>
     </div>
   `;
 }

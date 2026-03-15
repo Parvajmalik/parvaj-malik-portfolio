@@ -6,6 +6,17 @@ use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\UploadController;
 use Illuminate\Support\Facades\Route;
 
+// ── Health check ──────────────────────────────────────────────────────────────
+Route::get('/', function () {
+    return response()->json([
+        'message'      => 'Welcome to Parvaj Malik Portfolio API',
+        'owner'        => 'Parvaj Malik',
+        'developer'    => 'Pradyumna Mahajan',
+        'frontend_url' => 'https://parvajmalik.ibngroup.in',
+        'status'       => 'working',
+    ]);
+});
+
 // ── Auth ──────────────────────────────────────────────────────────────────────
 Route::prefix('auth')->group(function () {
     Route::post('login',  [AuthController::class, 'login']);

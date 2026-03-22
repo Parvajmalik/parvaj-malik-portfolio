@@ -8,7 +8,7 @@ on:
 jobs:
 
   deploy-frontend:
-    name: Deploy Frontend (vanilla/)
+    name: Deploy Frontend (frontend/)
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -27,7 +27,7 @@ jobs:
             --exclude 'api/' \
             --exclude '.git/' \
             -e "ssh -i ~/.ssh/deploy_key -p ${{ secrets.SSH_PORT }}" \
-            vanilla/ \
+            frontend/ \
             ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:${{ secrets.DEPLOY_PATH }}/
 
   deploy-backend:

@@ -62,25 +62,24 @@
       "description":  "Completed intensive training in Embedded Systems Design at CDAC, gaining hands-on experience in Embedded C/C++, RTOS, Linux systems, and microcontroller platforms including STM32, ESP32, NXP, and Raspberry Pi. Worked on real-time firmware development, peripheral interfacing (UART, SPI, I2C, CAN), IoT systems, and hardware-software integration."
     }
   ],
-
-
   "footer": {
     "ctaText": "Lets Connect there",
     "hireMeLink": "#",
     "bio": "Research-driven Embedded Systems Engineer focused on biomedical innovation and production-ready medical systems - Founder & CEO IBN Group.",
     "social": [
-      { "icon": "bi-facebook", "href": "#" },
       { "icon": "bi-youtube", "href": "#" },
-      { "icon": "bi-whatsapp", "href": "#" },
-      { "icon": "bi-discord", "href": "#" },
-      { "icon": "bi-twitter-x", "href": "#" }
+      { "icon": "bi-github", "href": "https://github.com/your-username" },
+      { "icon": "bi-linkedin", "href": "https://www.linkedin.com/in/your-username" }
+    ],    
+    "navLinks": [
+      { "label": "Home", "href": "index.html" },
+      { "label": "About Us", "href": "index.html#about" },
+      { "label": "Project", "href": "index.html#projects" },
+      { "label": "Blog", "href": "blog.html" }
     ],
-    
-    "navLinks": ["Home", "About Us", "Project", "Resume", "Blog"],
     "contact": {
       "phone": "+91 7599911610",
-      "email": "parvajmalik93898@gmail.com",
-      "website": "Portfolio-jcrea.com"
+      "email": "parvajmalik93898@gmail.com"
     },
     "newsletterTitle": "Get the latest information"
   },

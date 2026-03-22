@@ -24,3 +24,6 @@ dist-ssr
 *.sw?
 
 .backend-help.md
+
+backend\.backend-help.md
+.env.development

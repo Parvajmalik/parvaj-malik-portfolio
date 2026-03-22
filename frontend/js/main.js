@@ -3,7 +3,7 @@
 // ── Data ──────────────────────────────────────────────────────────────────────
 
 export async function loadData() {
-  const res = await fetch('./my-portfolio.json');
+  const res = await fetch('./my-portfolio.json', { cache: 'no-cache' });
   if (!res.ok) throw new Error('Failed to load portfolio data');
   return res.json();
 }
@@ -77,10 +77,11 @@ export function renderFooter(data) {
   const navLinks = footer.navLinks
     .map(item => `
       <li>
-        <a href="#" class="text-white-50 text-decoration-none footer-nav-link">${item}</a>
+        <a href="${item.href}" class="text-white-50 text-decoration-none footer-nav-link">${item.label}</a>
       </li>
     `)
     .join('');
+    
 
   document.getElementById('site-footer').innerHTML = `
     <footer class="bg-dark-custom text-white">
@@ -128,7 +129,7 @@ export function renderFooter(data) {
             <ul class="list-unstyled d-flex flex-column gap-2 mb-0 text-white-50">
               <li>${footer.contact.phone}</li>
               <li>${footer.contact.email}</li>
-              <li>${footer.contact.website}</li>
+              ${footer.contact.website ? `<li>${footer.contact.website}</li>` : ''}
             </ul>
           </div>
 

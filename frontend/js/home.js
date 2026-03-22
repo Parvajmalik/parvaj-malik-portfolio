@@ -112,7 +112,7 @@ function renderHome(data, projects) {
       </section>
 
       <!-- ── About section ── -->
-      <section class="py-5 about-section">
+      <section id="about" class="py-5 about-section">
         <div class="container">
           <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-3">
             <div>
@@ -136,7 +136,7 @@ function renderHome(data, projects) {
       </section>
 
             <!-- ── PROJECTS (was About) ── -->
-      <section class="py-5 about-section">
+      <section id="projects" class="py-5 about-section">
         <div class="container">
           <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-3">
             <div>
@@ -161,9 +161,15 @@ async function init() {
     api.getProjects().catch(() => []),
   ]);
 
+  
   renderHeader(data);
   renderHome(data, projects);
   renderFooter(data);
+
+  if (window.location.hash) {
+    const el = document.querySelector(window.location.hash);
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
+  }
 }
 
 init();

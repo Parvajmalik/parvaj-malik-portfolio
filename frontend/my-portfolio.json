@@ -67,9 +67,10 @@
     "hireMeLink": "#",
     "bio": "Research-driven Embedded Systems Engineer focused on biomedical innovation and production-ready medical systems - Founder & CEO IBN Group.",
     "social": [
-      { "icon": "bi-youtube", "href": "#" },
-      { "icon": "bi-github", "href": "https://github.com/your-username" },
-      { "icon": "bi-linkedin", "href": "https://www.linkedin.com/in/your-username" }
+      { "icon": "bi-youtube", "href": "https://www.youtube.com/@engineermalik97581" },
+      { "icon": "bi-github", "href": "https://github.com/Parvajmalik" },
+      { "icon": "bi-linkedin", "href": "https://www.linkedin.com/in/your-username" },
+      { "icon": "bi-whatsapp", "href": "http://wa.me/+919389857045" }
     ],    
     "navLinks": [
       { "label": "Home", "href": "index.html" },

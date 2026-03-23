@@ -103,11 +103,10 @@ main { flex: 1; }
   object-position: center bottom;
   display: block;
 }
-.testimonial-wrap { max-width: 280px; }
 .testimonial-text {
   color: #344054;
-  font-size: 1.1rem;
-  line-height: 1.6;
+  font-size: 16px;
+  line-height: 1.5;
 }
 .star-icon { color: #ff8c42; }
 .years-count {

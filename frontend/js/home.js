@@ -3,6 +3,37 @@
 import { loadData, renderHeader, renderFooter } from './main.js';
 import { api } from './api.js';
 
+function renderBlogCards(blogs) {
+  if (!blogs || !blogs.length) {
+    return '<p class="text-secondary text-center col-12">No blog posts yet.</p>';
+  }
+
+  return blogs.slice(0, 3).map(blog => `
+    <div class="col-md-4">
+          <a href="blog-detail.html?slug=${blog.slug}" class="text-decoration-none">
+      <div class="card border-0 rounded-4 overflow-hidden h-100 blog-card">
+        <div class="position-relative overflow-hidden">
+          ${blog.featured_image
+      ? `<img src="${blog.featured_image}" alt="${blog.title}" class="blog-img" />`
+      : `<div class="blog-img bg-light d-flex align-items-center justify-content-center text-secondary fs-1"><i class="bi bi-image"></i></div>`}
+        </div>
+        <div class="card-body p-3 d-flex flex-column">
+          <span class="badge rounded-pill px-3 py-2 mb-2 fw-medium blog-badge">
+            ${blog.category || 'General'}
+          </span>
+          <div class="d-flex gap-3 mb-2 small text-secondary">
+            <span><span class="text-orange">● </span>${blog.author || ''}</span>
+            <span><span class="text-orange">● </span>${blog.published_at ? new Date(blog.published_at).toLocaleDateString() : ''}</span>
+          </div>
+          <h5 class="fw-semibold text-dark-custom mb-2 flex-grow-1" style="line-height:1.4">${blog.title}</h5>
+          <p class="text-secondary small mb-0">${blog.excerpt || ''}</p>
+        </div>
+      </div>
+      </a>
+    </div>
+  `).join('');
+}
+
 function renderProjectCards(projects) {
   if (!projects || !projects.length) {
     return '<p class="text-white-50 text-center col-12">No projects yet.</p>';
@@ -10,24 +41,22 @@ function renderProjectCards(projects) {
 
   return projects.slice(0, 3).map(p => `
     <div class="col-md-4">
-      <div class="rounded-4 p-3 h-100 position-relative about-card">
-        <h3 class="text-white fw-semibold mb-3 skill-title">${p.title}</h3>
-        <div class="rounded-3 overflow-hidden mb-3">
-          ${p.featured_image
+      <a href="project-detail.html?slug=${p.slug}" class="text-decoration-none">
+        <div class="rounded-4 p-3 h-100 position-relative about-card">
+          <h3 class="text-white fw-semibold mb-3 skill-title">${p.title}</h3>
+          <div class="rounded-3 overflow-hidden mb-3">
+            ${p.featured_image
       ? `<img src="${p.featured_image}" alt="${p.title}" class="about-img" />`
       : `<div class="about-img d-flex align-items-center justify-content-center bg-dark text-white-50 fs-2"><i class="bi bi-image"></i></div>`}
+          </div>
+          <p class="text-white-50 small mb-0">${p.excerpt || ''}</p>
         </div>
-        <p class="text-white-50 small mb-0">${p.excerpt || ''}</p>
-        <a href="project-detail.html?slug=${p.slug}"
-           class="btn rounded-circle d-flex align-items-center justify-content-center position-absolute btn-circle">
-          <i class="bi bi-arrow-up-right"></i>
-        </a>
-      </div>
+      </a>
     </div>
   `).join('');
 }
 
-function renderHome(data, projects) {
+function renderHome(data, projects, blogs) {
   const { hero, about, workExperience } = data;
 
   const stars = Array.from({ length: 5 })
@@ -35,6 +64,7 @@ function renderHome(data, projects) {
     .join('');
 
   const projectCards = renderProjectCards(projects);
+  const blogCards = renderBlogCards(blogs);
 
   const workItems = workExperience
     .map((work, index) => `
@@ -114,14 +144,26 @@ function renderHome(data, projects) {
       <!-- ── About section ── -->
       <section id="about" class="py-5 about-section">
         <div class="container">
-          <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-3">
+          <div class="d-flex justify-content-between align-items-start mb-4 flex-wrap gap-3">
             <div>
+            <div class="d-flex justify-content-between align-items-center mb-3" >
               <h2 class="fw-bold text-white mb-1 section-heading">
                 About
               </h2>
+        <div class="d-flex gap-2 flex-shrink-0">
+              <a href="${about.resumeUrl || '#'}" target="_blank" rel="noopener"
+                 class="btn btn-orange rounded-pill px-4 py-2 fw-semibold">
+                <i class="bi bi-eye me-2"></i>View Resume
+              </a>
+              <a href="${about.resumeUrl || '#'}" download
+                 class="btn btn-outline-light rounded-pill px-3 py-2 fw-semibold">
+                <i class="bi bi-download me-1"></i>Download
+              </a>
+            </div>
+            </div>
               <p class="text-white-50 mb-0">${about.description}</p>
             </div>
-        </div>
+          </div>
         </div>
       </section>
 
@@ -151,19 +193,36 @@ function renderHome(data, projects) {
           <div class="row g-4">${projectCards}</div>
         </div>
       </section>
+
+      <!-- ── BLOGS ── -->
+      <section id="blogs" class="py-5 bg-white">
+        <div class="container">
+          <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-3">
+            <div>
+              <h2 class="fw-bold text-dark-custom mb-1 section-heading">
+                My <span class="text-orange">Blogs</span>
+              </h2>
+            </div>
+            <a href="blog.html" class="btn btn-orange rounded-pill px-4 py-2 fw-semibold">
+              View All <i class="bi bi-arrow-right ms-1"></i>
+            </a>
+          </div>
+          <div class="row g-4">${blogCards}</div>
+        </div>
+      </section>
     </div>
   `;
 }
 
 async function init() {
-  const [data, projects] = await Promise.all([
+  const [data, projects, blogs] = await Promise.all([
     loadData(),
     api.getProjects().catch(() => []),
+    api.getBlogs().catch(() => []),
   ]);
 
-  
   renderHeader(data);
-  renderHome(data, projects);
+  renderHome(data, projects, blogs);
   renderFooter(data);
 
   if (window.location.hash) {

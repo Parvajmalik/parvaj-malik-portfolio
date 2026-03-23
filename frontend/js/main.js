@@ -12,7 +12,7 @@ export async function loadData() {
 
 function getActivePath() {
   const p = window.location.pathname;
-  if (p.includes('blog'))    return '/blogs';   // blog.html + blog-detail.html
+  if (p.includes('blog')) return '/blogs';   // blog.html + blog-detail.html
   if (p.includes('project')) return '/project'; // project.html + project-detail.html
   if (p.includes('contact')) return '/contact';
   return '/';
@@ -30,13 +30,13 @@ function pathToFile(path) {
 
 export function renderHeader(data) {
   const { site, header } = data;
-  const midpoint   = Math.floor(header.navLinks.length / 2);
+  const midpoint = Math.floor(header.navLinks.length / 2);
   const activePath = getActivePath();
 
   const navItems = header.navLinks
     .map((link, i) => {
-      const isActive  = link.path === activePath;
-      const logoHtml  = i === midpoint
+      const isActive = link.path === activePath;
+      const logoHtml = i === midpoint
         ? `<div class="d-flex align-items-center justify-content-center rounded-circle fw-bold mx-3 header-logo">
              ${site.initials}
            </div>`
@@ -81,22 +81,11 @@ export function renderFooter(data) {
       </li>
     `)
     .join('');
-    
+
 
   document.getElementById('site-footer').innerHTML = `
     <footer class="bg-dark-custom text-white">
       <div class="container py-5">
-
-        <!-- CTA row -->
-        <div class="d-flex justify-content-between align-items-center flex-wrap gap-3 mb-4">
-          <h2 class="fw-semibold mb-0 cta-heading">${footer.ctaText}</h2>
-          <a href="${footer.hireMeLink}"
-             class="btn rounded-pill d-flex align-items-center gap-2 px-4 py-2 fw-semibold btn-orange">
-            Hire me <i class="bi bi-arrow-up-right"></i>
-          </a>
-        </div>
-
-        <hr class="footer-hr" />
 
         <!-- Main footer grid -->
         <div class="row g-5 py-4">
@@ -124,7 +113,7 @@ export function renderFooter(data) {
           </div>
 
           <!-- Contact -->
-          <div class="col-lg-3 col-6">
+          <div class="col-lg-2 col-6">
             <h5 class="fw-semibold mb-3 footer-section-title">Contact</h5>
             <ul class="list-unstyled d-flex flex-column gap-2 mb-0 text-white-50">
               <li>${footer.contact.phone}</li>
@@ -133,19 +122,12 @@ export function renderFooter(data) {
             </ul>
           </div>
 
-          <!-- Newsletter -->
-          <div class="col-lg-3">
-            <h5 class="fw-semibold mb-3 footer-section-title">${footer.newsletterTitle}</h5>
-            <div class="input-group">
-              <input
-                type="email"
-                class="form-control newsletter-input"
-                placeholder="Email Address"
-              />
-              <button class="btn btn-orange border-0">
-                <i class="bi bi-send-fill"></i>
-              </button>
-            </div>
+          <!-- Hire Me -->
+          <div class="col-lg-3 d-flex justify-content-end">
+            <a href="${footer.hireMeLink}"
+               class="btn btn-orange rounded-pill px-4 py-2 fw-semibold d-inline-flex align-items-center gap-2 align-self-start">
+              Hire Me <i class="bi bi-arrow-up-right"></i>
+            </a>
           </div>
 
         </div>

@@ -25,10 +25,18 @@ jobs:
         run: |
           rsync -avz --delete \
             --exclude 'api/' \
+            --exclude 'storage/' \
             --exclude '.git/' \
             -e "ssh -i ~/.ssh/deploy_key -p ${{ secrets.SSH_PORT }}" \
             frontend/ \
             ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:${{ secrets.DEPLOY_PATH }}/
+
+      - name: Fix storage symlink
+        run: |
+          ssh -i ~/.ssh/deploy_key -p ${{ secrets.SSH_PORT }} -o StrictHostKeyChecking=no \
+            ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} \
+            "rm -f ${{ secrets.DEPLOY_PATH }}/storage && \
+             ln -s ${{ secrets.DEPLOY_PATH }}/api/storage/app/public ${{ secrets.DEPLOY_PATH }}/storage"
 
   deploy-backend:
     name: Deploy Backend (backend/)

@@ -9,7 +9,7 @@ function renderBlogCards(blogs) {
   }
 
   return blogs.slice(0, 3).map(blog => `
-    <div class="col-md-4">
+    <div class="col-lg-4 col-md-6">
           <a href="blog-detail.html?slug=${blog.slug}" class="text-decoration-none">
       <div class="card border-0 rounded-4 overflow-hidden h-100 blog-card">
         <div class="position-relative overflow-hidden">
@@ -40,7 +40,7 @@ function renderProjectCards(projects) {
   }
 
   return projects.slice(0, 3).map(p => `
-    <div class="col-md-4">
+    <div class="col-lg-4 col-12">
       <a href="project-detail.html?slug=${p.slug}" class="text-decoration-none">
         <div class="rounded-4 p-3 h-100 position-relative about-card">
           <h3 class="text-white fw-semibold mb-3 skill-title">${p.title}</h3>
@@ -68,17 +68,24 @@ function renderHome(data, projects, blogs) {
 
   const workItems = workExperience
     .map((work, index) => `
-      <div class="row align-items-start g-5 mb-4">
-        <div class="col-5 text-end pt-2">
+      <div class="row align-items-start g-3 g-md-5 mb-4">
+        <!-- Company/date: tablet & desktop only -->
+        <div class="col-5 text-end pt-2 d-none d-md-block">
           <h3 class="fw-bold mb-1 work-title text-dark-custom">${work.company}</h3>
           <p class="text-secondary mb-0 small">${work.period}</p>
         </div>
-        <div class="col-2 d-flex flex-column align-items-center pt-2">
+        <!-- Timeline dot & line -->
+        <div class="col-auto col-md-2 d-flex flex-column align-items-center pt-2">
           <div class="timeline-dot ${index === 1 ? 'timeline-dot-dark' : 'timeline-dot-orange'}"></div>
           ${index < workExperience.length - 1 ? '<div class="timeline-line"></div>' : ''}
         </div>
-        <div class="col-5 pt-2">
-          <h3 class="fw-bold mb-1 work-title text-dark-custom">${work.position}</h3>
+        <!-- Role/desc always + company/date on mobile -->
+        <div class="col pt-2">
+          <div class="d-md-none mb-2">
+            <span class="fw-bold small text-dark-custom">${work.company}</span><br>
+            <small class="text-secondary">${work.period}</small>
+          </div>
+          <h3 class="fw-bold mb-1 work-title text-dark-custom work-role">${work.position}</h3>
           <p class="text-secondary mb-0 small">${work.description}</p>
         </div>
       </div>
@@ -114,7 +121,15 @@ function renderHome(data, projects, blogs) {
           </div>
 
           <div class="row g-2 mt-2">
-            <div class="col-lg-3 col-12 d-flex justify-content-lg-end justify-content-center">
+            <!-- Avatar: first on mobile/tablet, center on desktop -->
+            <div class="col-lg-6 col-12 d-flex justify-content-center order-1 order-lg-2">
+              <div class="hero-avatar">
+                <img src="${hero.profileImage}" alt="${hero.firstName}" />
+              </div>
+            </div>
+
+            <!-- Testimonial: below avatar on tablet (col-md-8), left on desktop -->
+            <div class="col-lg-3 col-md-8 col-12 d-flex justify-content-lg-end justify-content-center order-2 order-lg-1">
               <div class="testimonial-wrap">
                 <svg width="36" height="36" viewBox="0 0 36 36" fill="none" class="mb-2">
                   <path d="M12.135 17.445H5.1C5.22 10.44 6.6 9.285 10.905 6.735C11.4 6.435 11.565 5.805 11.265 5.295C10.98 4.8 10.335 4.635 9.84 4.935C4.77 7.935 3 9.765 3 18.48V26.565C3 29.13 5.085 31.2 7.635 31.2H12.135C14.775 31.2 16.77 29.205 16.77 26.565V22.065C16.77 19.44 14.775 17.445 12.135 17.445Z" fill="#344054"/>
@@ -124,13 +139,8 @@ function renderHome(data, projects, blogs) {
               </div>
             </div>
 
-            <div class="col-lg-6 col-12 d-flex justify-content-center">
-              <div class="hero-avatar">
-                <img src="${hero.profileImage}" alt="${hero.firstName}" />
-              </div>
-            </div>
-
-            <div class="col-lg-3 col-12 d-flex justify-content-lg-start justify-content-center">
+            <!-- Stars: right on desktop, col-md-4 beside testimonial on tablet -->
+            <div class="col-lg-3 col-md-4 col-12 d-flex justify-content-lg-start justify-content-center order-3 order-lg-3 pb-3 pb-md-0">
               <div>
                 <div class="d-flex gap-1 mb-2">${stars}</div>
                 <strong class="d-block fw-bold years-count">${hero.yearsExperience} Years</strong>
@@ -144,13 +154,10 @@ function renderHome(data, projects, blogs) {
       <!-- ── About section ── -->
       <section id="about" class="py-5 about-section">
         <div class="container">
-          <div class="d-flex justify-content-between align-items-start mb-4 flex-wrap gap-3">
-            <div>
-            <div class="d-flex justify-content-between align-items-center mb-3" >
-              <h2 class="fw-bold text-white mb-1 section-heading">
-                About
-              </h2>
-        <div class="d-flex gap-2 flex-shrink-0">
+          <!-- Title row: heading left, buttons right (tablet & desktop) -->
+          <div class="d-flex justify-content-between align-items-center mb-3 flex-wrap gap-2">
+            <h2 class="fw-bold text-white mb-0 section-heading">About</h2>
+            <div class="d-none d-md-flex gap-2 flex-shrink-0">
               <a href="${about.resumeUrl || '#'}" target="_blank" rel="noopener"
                  class="btn btn-orange rounded-pill px-4 py-2 fw-semibold">
                 <i class="bi bi-eye me-2"></i>View Resume
@@ -160,9 +167,19 @@ function renderHome(data, projects, blogs) {
                 <i class="bi bi-download me-1"></i>Download
               </a>
             </div>
-            </div>
-              <p class="text-white-50 mb-0">${about.description}</p>
-            </div>
+          </div>
+          <!-- Description -->
+          <p class="text-white-50 mb-3">${about.description}</p>
+          <!-- Buttons below description (mobile only) -->
+          <div class="d-flex d-md-none gap-2 mb-4 flex-wrap">
+            <a href="${about.resumeUrl || '#'}" target="_blank" rel="noopener"
+               class="btn btn-orange rounded-pill px-4 py-2 fw-semibold">
+              <i class="bi bi-eye me-2"></i>View Resume
+            </a>
+            <a href="${about.resumeUrl || '#'}" download
+               class="btn btn-outline-light rounded-pill px-3 py-2 fw-semibold">
+              <i class="bi bi-download me-1"></i>Download
+            </a>
           </div>
         </div>
       </section>

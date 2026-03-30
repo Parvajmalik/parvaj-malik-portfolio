@@ -263,15 +263,15 @@ main { flex: 1; }
 @media (max-width: 767.98px) {
   /* Hero */
   .hero-avatar {
-    width: 280px;
-    height: 280px;
+    width: 100%;
+    height: 100%;
     border-radius: 50%;
     padding-top: 0;
     align-items: center;
     overflow: hidden;
   }
   .hero-avatar img {
-    width: 90%;
+    width: 115%;
     object-fit: cover;
     object-position: center top;
   }
@@ -318,8 +318,8 @@ main { flex: 1; }
 @media (max-width: 399.98px) {
   .section-heading { font-size: 1.25rem; }
   .hero-avatar {
-    width: 280px;
-    height: 280px;
+    width: 100%;
+    height: 100%;
   }
   .nav-pill-wrap { border-radius: 0.75rem !important; }
 }

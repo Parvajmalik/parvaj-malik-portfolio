@@ -13,16 +13,12 @@ function renderBlogCards(blogs) {
 
   return blogs.map(blog => `
     <div class="col-md-4">
+       <a href="blog-detail.html?slug=${blog.slug}"  class="text-decoration-none">
       <div class="card border-0 rounded-4 overflow-hidden h-100 blog-card">
-
         <div class="position-relative overflow-hidden">
           ${blog.featured_image
-            ? `<img src="${blog.featured_image}" alt="${blog.title}" class="blog-img" />`
-            : `<div class="blog-img bg-light d-flex align-items-center justify-content-center text-secondary fs-1"><i class="bi bi-image"></i></div>`}
-          <a href="blog-detail.html?slug=${blog.slug}"
-             class="btn rounded-circle d-flex align-items-center justify-content-center position-absolute btn-circle">
-            <i class="bi bi-arrow-up-right"></i>
-          </a>
+      ? `<img src="${blog.featured_image}" alt="${blog.title}" class="blog-img" />`
+      : `<div class="blog-img bg-light d-flex align-items-center justify-content-center text-secondary fs-1"><i class="bi bi-image"></i></div>`}
         </div>
 
         <div class="card-body p-3 d-flex flex-column">
@@ -36,8 +32,8 @@ function renderBlogCards(blogs) {
           <h5 class="fw-semibold text-dark-custom mb-2 flex-grow-1" style="line-height:1.4">${blog.title}</h5>
           <p class="text-secondary small mb-0">${blog.excerpt || ''}</p>
         </div>
-
       </div>
+      </a>
     </div>
   `).join('');
 }

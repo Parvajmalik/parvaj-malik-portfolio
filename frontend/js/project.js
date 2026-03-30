@@ -20,17 +20,14 @@ function renderProjects(projects) {
 
     return `
       <div class="col-md-6 col-lg-4">
+             <a href="project-detail.html?slug=${p.slug}"  class="text-decoration-none">
         <div class="card border-0 rounded-4 overflow-hidden h-100 project-card">
           <div class="position-relative overflow-hidden">
             ${p.featured_image
-              ? `<img src="${p.featured_image}" alt="${p.title}" class="project-img" />`
-              : `<div class="project-img bg-light d-flex align-items-center justify-content-center text-secondary fs-1">
+        ? `<img src="${p.featured_image}" alt="${p.title}" class="project-img" />`
+        : `<div class="project-img bg-light d-flex align-items-center justify-content-center text-secondary fs-1">
                    <i class="bi bi-image"></i>
                  </div>`}
-            <a href="project-detail.html?slug=${p.slug}"
-               class="btn rounded-circle d-flex align-items-center justify-content-center position-absolute btn-circle">
-              <i class="bi bi-arrow-up-right"></i>
-            </a>
           </div>
 
           <div class="card-body p-3 d-flex flex-column">
@@ -44,6 +41,7 @@ function renderProjects(projects) {
             </div>
           </div>
         </div>
+        </a>
       </div>
     `;
   }).join('');

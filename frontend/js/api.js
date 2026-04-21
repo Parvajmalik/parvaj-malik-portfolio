@@ -2,12 +2,19 @@
 
 const isLocalhost = ['localhost', '127.0.0.1'].includes(window.location.hostname);
 export const API_BASE = isLocalhost
-  ? 'http://localhost:8000/api'
-  : 'https://parvajmalik.ibngroup.in/api';
+  ? 'http://localhost:8000'
+  : 'https://api.ibngroup.in';
+
+const SITE = 'parvajmalik'; 
 
 async function request(method, path, body = null) {
   const token = localStorage.getItem('auth_token');
-  const headers = { 'Content-Type': 'application/json', Accept: 'application/json' };
+  const headers = { 
+    'Content-Type': 'application/json', 
+    Accept: 'application/json',
+    'X-Site': SITE, 
+
+  };
   if (token) headers['Authorization'] = `Bearer ${token}`;
 
   const opts = { method, headers };
@@ -58,7 +65,11 @@ export async function uploadImage(file) {
 
   const res = await fetch(`${API_BASE}/upload/image`, {
     method: 'POST',
-    headers: { Authorization: `Bearer ${token}`, Accept: 'application/json' },
+    headers: { 
+      Authorization: `Bearer ${token}`, 
+      Accept: 'application/json',
+      'X-Site': SITE,  
+    },
     body: form,
   });
   if (!res.ok) {

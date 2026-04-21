@@ -29,3 +29,11 @@ backend\.backend-help.md
 .env.development
 
 buck
+
+/claude
+
+# Claude AI workspace
+claude/chat_response/
+claude/img_input/
+claude/img_out/
+claude/web_screenshot/
